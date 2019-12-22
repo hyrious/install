@@ -18,7 +18,7 @@ class PBar
   end
 
   def content_length_proc
-    -> len { @max = len; print "\e[s" }
+    -> len { if len then @max = len and print "\e[s" end }
   end
 
   def progress_proc

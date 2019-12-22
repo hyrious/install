@@ -1,5 +1,8 @@
 # https://scoop.sh
 
+require_relative 'lib/dep'
+
+dep 'git'
 script = <<~PS1
   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
   Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
