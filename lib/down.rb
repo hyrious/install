@@ -4,8 +4,8 @@ require 'open-uri'
 def down url, filename=File.basename(url)
   unless File.exist? filename
     print "Downloading #{filename}: "
-    open(URI.encode(url), **pbar.kwargs) { |f|
-      open(filename, 'wb') { |t|
+    URI.open(URI(url), **pbar.kwargs) { |f|
+      URI.open(filename, 'wb') { |t|
         IO.copy_stream(f, t)
       }
       puts
@@ -23,4 +23,8 @@ rescue => e
   raise
 rescue Interrupt
   puts "^C"
+end
+
+def fetch url
+  URI.open(URI(url)) { |f| f.read }
 end

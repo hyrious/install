@@ -6,6 +6,7 @@
 class PBar
   # [===>      ] 42.35%
   BAR = -> cur, max {
+    cur = [cur, max].min
     n = 20
     s = '=' * (cur * n / max)
     t = ' ' * (n - s.size)
