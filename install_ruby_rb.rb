@@ -1,6 +1,5 @@
 # https://github.com/thisredone/rb
 
-require 'open-uri'
 require 'fileutils'
 require_relative 'lib/down'
 
